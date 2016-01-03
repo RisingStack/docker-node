@@ -13,6 +13,11 @@ COPY . .
 CMD ["npm","start"]
 ```
 
+## Ubuntu-based images
+
+* Node.js v4.2.4: `docker pull risingstack/trusty:v4.2.4`
+* Node.js v5.3.0: `docker pull risingstack/trusty:v5.3.0`
+
 ## Alpine-based images
 
 Alpine Linux is a security-oriented, lightweight Linux distribution
