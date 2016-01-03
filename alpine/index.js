@@ -5,7 +5,7 @@ const mkdirp = require('mkdirp')
 const debug = require('debug')('alpine')
 
 const versions = require('./versions')
-const source = fs.readFileSync(path.join(__dirname, 'Dockerfile.template.hbs'), 'utf-8')
+const source = fs.readFileSync(path.join(__dirname, 'Dockerfile.hbs'), 'utf-8')
 const template = Handlebars.compile(source)
 
 function generate () {
