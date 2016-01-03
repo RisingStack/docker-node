@@ -3,7 +3,7 @@
 ## Usage
 
 ```Dockerfile
-FROM risingstack/alpine:4.2.4
+FROM risingstack/alpine:v4.2.4
 
 COPY package.json package.json
 RUN npm install
