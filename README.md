@@ -1,5 +1,14 @@
 # RisingStack Docker Images
 
+In this repo you can find different Linux distributions with Node.js.
+
+Regarding the tags:
+
+* `vX.Y.Z` stands for the Node.js version which ships with the given images
+* `latest` stands for the latest LTS Node.js version
+
+You can find all the images and tags on the [RisingStack Docker Hub](https://hub.docker.com/r/risingstack).
+
 ## Usage
 
 ```Dockerfile
