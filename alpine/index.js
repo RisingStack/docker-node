@@ -13,7 +13,6 @@ function generate () {
   versions.forEach((version) => {
     const dockerFileContent = template({
       VERSION: version,
-      CONFIG_FLAGS: '--fully-static',
       DEL_PKGS: 'libgcc libstdc++',
       RM_DIRS: '/usr/include'
     })
