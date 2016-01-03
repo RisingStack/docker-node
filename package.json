@@ -19,6 +19,7 @@
   "homepage": "https://github.com/RisingStack/docker-node#readme",
   "dependencies": {
     "debug": "^2.2.0",
+    "fs-readdir-recursive": "^1.0.0",
     "handlebars": "4.0.5",
     "mkdirp": "^0.5.1"
   },

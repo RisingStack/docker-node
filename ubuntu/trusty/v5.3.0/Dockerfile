@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
       python-all \
  && rm -rf /var/lib/apt/lists/*;
 
-RUN   curl -sSL https://nodejs.org/dist/v4.2.4/node-v4.2.4.tar.gz | tar -xz && \
-  cd /node-v4.2.4 && \
+RUN   curl -sSL https://nodejs.org/dist/v5.3.0/node-v5.3.0.tar.gz | tar -xz && \
+  cd /node-v5.3.0 && \
   ./configure --prefix=/usr && \
   make && sudo make install
