@@ -5,7 +5,7 @@ MAINTAINER Gergely Nemeth <gergely@risingstack.com>
 RUN apk add --update curl make gcc g++ binutils-gold python linux-headers paxctl libgcc libstdc++ && \
   curl -sSL https://nodejs.org/dist/v0.10.41/node-v0.10.41.tar.gz | tar -xz && \
   cd /node-v0.10.41 && \
-  ./configure --prefix=/usr --fully-static && \
+  ./configure --prefix=/usr  && \
   make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
   make install && \
   paxctl -cm /usr/bin/node && \
