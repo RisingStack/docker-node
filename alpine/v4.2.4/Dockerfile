@@ -9,7 +9,7 @@ RUN curl -sSL https://nodejs.org/dist/v4.2.4/node-v4.2.4.tar.gz | tar -xz && \
   make install && \
   paxctl -cm /usr/bin/node && \
   cd / && \
-  apk del curl make gcc g++ binutils-gold python linux-headers paxctl  && \
-  rm -rf /etc/ssl /node-v4.2.4  \
+  apk del curl binutils-gold python linux-headers paxctl && \
+  rm -rf /etc/ssl /node-v4.2.4 /usr/include \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
