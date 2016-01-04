@@ -1,5 +1,7 @@
 # RisingStack Docker Images
 
+**Currently this repo is under heavy development - use it with caution!**
+
 In this repo you can find different Linux distributions with Node.js.
 
 Regarding the tags:
