@@ -1,9 +1,8 @@
-FROM alpine:3.3
+FROM risingstack/alpine
 
 MAINTAINER Gergely Nemeth <gergely@risingstack.com>
 
-RUN apk add --update curl make gcc g++ binutils-gold python linux-headers paxctl libgcc libstdc++ && \
-  curl -sSL https://nodejs.org/dist/v5.3.0/node-v5.3.0.tar.gz | tar -xz && \
+RUN curl -sSL https://nodejs.org/dist/v5.3.0/node-v5.3.0.tar.gz | tar -xz && \
   cd /node-v5.3.0 && \
   ./configure --prefix=/usr && \
   make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
