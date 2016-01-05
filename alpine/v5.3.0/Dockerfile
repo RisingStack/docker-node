@@ -13,3 +13,5 @@ RUN curl -sSL https://nodejs.org/dist/v5.3.0/node-v5.3.0.tar.gz | tar -xz && \
   rm -rf /etc/ssl /node-v5.3.0 /usr/include \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
+
+WORKDIR /usr/src/node-app
