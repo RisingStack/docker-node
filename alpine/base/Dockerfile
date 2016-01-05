@@ -5,4 +5,5 @@ MAINTAINER Gergely Nemeth <gergely@risingstack.com>
 RUN apk add --update \
 	build-base \
 	curl \
+	linux-headers \
 	python
