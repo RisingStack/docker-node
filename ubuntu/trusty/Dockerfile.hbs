@@ -1,4 +1,4 @@
-FROM risingstack:trusty-base
+FROM risingstack/trusty-base
 
 MAINTAINER Gergely Nemeth <gergely@risingstack.com>
 
