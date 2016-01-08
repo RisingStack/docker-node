@@ -6,6 +6,7 @@ RUN apk add --update \
 	binutils-gold \
 	build-base \
 	curl \
+	git \
 	linux-headers \
 	paxctl \
 	python
