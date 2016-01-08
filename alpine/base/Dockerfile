@@ -9,7 +9,7 @@ RUN apk add --update \
 	gcc \
 	g++ \
 	libgcc \
-	libstdc++
+	libstdc++ \
 	linux-headers \
 	paxctl \
 	python
