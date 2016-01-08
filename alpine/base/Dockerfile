@@ -4,9 +4,12 @@ MAINTAINER Gergely Nemeth <gergely@risingstack.com>
 
 RUN apk add --update \
 	binutils-gold \
-	build-base \
 	curl \
 	git \
+	gcc \
+	g++ \
+	libgcc \
+	libstdc++
 	linux-headers \
 	paxctl \
 	python
