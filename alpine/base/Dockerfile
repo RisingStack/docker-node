@@ -11,5 +11,6 @@ RUN apk add --update \
 	libgcc \
 	libstdc++ \
 	linux-headers \
+	make \
 	paxctl \
 	python
