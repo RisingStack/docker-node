@@ -6,6 +6,7 @@ dependencies:
   override:
     - docker info
     - cd alpine/base && docker build -t risingstack/alpine-base:latest .
+    - cd ubuntu/trusty/base && docker build -t risingstack/trusty-base:latest .
 
 deployment:
   hub:
@@ -13,3 +14,4 @@ deployment:
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - cd alpine/base && docker push risingstack/alpine-base:latest
+      - cd ubuntu/trusty/base && docker push risingstack/trusty-base:latest
