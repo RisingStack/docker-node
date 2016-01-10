@@ -7,6 +7,8 @@ dependencies:
     - docker info
     - cd alpine/base && docker build -t risingstack/alpine-base:latest .
     - cd ubuntu/trusty/base && docker build -t risingstack/trusty-base:latest .
+    - cd ubuntu/trusty/v4.2.4 && docker build -t risingstack/trusty:v4.2.4 .
+    - cd ubuntu/trusty/v5.3.0 && docker build -t risingstack/trusty:v5.3.0 .
 
 deployment:
   hub:
@@ -15,3 +17,5 @@ deployment:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - cd alpine/base && docker push risingstack/alpine-base:latest
       - cd ubuntu/trusty/base && docker push risingstack/trusty-base:latest
+      - cd ubuntu/trusty/v4.2.4 && docker push risingstack/trusty:v4.2.4
+      - cd ubuntu/trusty/v5.3.0 && docker push risingstack/trusty:v5.3.0
