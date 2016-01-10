@@ -9,6 +9,8 @@ dependencies:
     - cd ubuntu/trusty/base && docker build -t risingstack/trusty-base:latest .
     - cd ubuntu/trusty/v4.2.4 && docker build -t risingstack/trusty:v4.2.4 .
     - cd ubuntu/trusty/v5.3.0 && docker build -t risingstack/trusty:v5.3.0 .
+    - cd alpine/v4.2.4 && docker build -t risingstack/alpine:v4.2.4 .
+    - cd alpine/v5.3.0 && docker build -t risingstack/alpine:v5.3.0 .
 
 deployment:
   hub:
@@ -19,3 +21,5 @@ deployment:
       - cd ubuntu/trusty/base && docker push risingstack/trusty-base:latest
       - cd ubuntu/trusty/v4.2.4 && docker push risingstack/trusty:v4.2.4
       - cd ubuntu/trusty/v5.3.0 && docker push risingstack/trusty:v5.3.0
+      - cd alpine/v4.2.4 && docker push risingstack/alpine:v4.2.4
+      - cd alpine/v5.3.0 && docker push risingstack/alpine:v5.3.0
