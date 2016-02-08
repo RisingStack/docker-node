@@ -1,33 +1,22 @@
 machine:
   services:
     - docker
+  node:
+    version: 4.2.4
+  environment:
+    BUILD_ALL: 1
 
 dependencies:
   override:
     - docker info
-    - cd alpine/base && docker build -t risingstack/alpine-base:latest .
-    - cd ubuntu/trusty/base && docker build -t risingstack/trusty-base:latest .
-    - cd ubuntu/trusty/v4.2.4 && docker build -t risingstack/trusty:v4.2.4 .
-    - cd ubuntu/trusty/v5.3.0 && docker build -t risingstack/trusty:v5.3.0 .
-    - cd ubuntu/trusty/v5.4.0 && docker build -t risingstack/trusty:v5.4.0 .
-    - cd ubuntu/trusty/v5.4.1 && docker build -t risingstack/trusty:v5.4.1 .
-    - cd alpine/v4.2.4 && docker build -t risingstack/alpine:v4.2.4 .
-    - cd alpine/v5.3.0 && docker build -t risingstack/alpine:v5.3.0 .
-    - cd alpine/v5.4.0 && docker build -t risingstack/alpine:v5.4.0 .
-    - cd alpine/v5.4.1 && docker build -t risingstack/alpine:v5.4.1 .
+    - version=(node -pe "($(cat package.json)).version"); cd ubuntu/trusty/v4.2.4 && docker build -t risingstack/trusty:v4.2.4-$version .;
+    - version=(node -pe "($(cat package.json)).version"); cd ubuntu/trusty/v5.4.1 && docker build -t risingstack/trusty:v5.4.1-$version .;
+
 
 deployment:
   hub:
-    branch: master
+    tag: /v[0-9]+(\.[0-9]+)*/
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - cd alpine/base && docker push risingstack/alpine-base:latest
-      - cd ubuntu/trusty/base && docker push risingstack/trusty-base:latest
-      - cd ubuntu/trusty/v4.2.4 && docker push risingstack/trusty:v4.2.4
-      - cd ubuntu/trusty/v5.3.0 && docker push risingstack/trusty:v5.3.0
-      - cd ubuntu/trusty/v5.4.0 && docker push risingstack/trusty:v5.4.0
-      - cd ubuntu/trusty/v5.4.1 && docker push risingstack/trusty:v5.4.1
-      - cd alpine/v4.2.4 && docker push risingstack/alpine:v4.2.4
-      - cd alpine/v5.3.0 && docker push risingstack/alpine:v5.3.0
-      - cd alpine/v5.4.0 && docker push risingstack/alpine:v5.4.0
-      - cd alpine/v5.4.1 && docker push risingstack/alpine:v5.4.1
+      - version=(node -pe "($(cat package.json)).version"); cd ubuntu/trusty/v4.2.4 && docker push risingstack/trusty:v4.2.4-$version;
+      - version=(node -pe "($(cat package.json)).version"); cd ubuntu/trusty/v5.4.1 && docker push risingstack/trusty:v5.4.1-$version;
