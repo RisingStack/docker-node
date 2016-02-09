@@ -1,19 +1,24 @@
 # RisingStack Docker Images
 
-**Work in progress, do not use it in production!**
-
 In this repo you can find different Linux distributions with Node.js.
 
-Regarding the tags:
+## Tags
 
-* `vX.Y.Z` stands for the Node.js version which ships with the given image
+The tags has the following format: `X-Y-X`, where:
+
+* `X` stands for the version of the OS of the base image
+* `Y` stands for the Node.js version included in the image
+* `Z` stands for general semantic version of this repository
+
+For first it may seem strange / too complex, but with this you can be sure that
+you are using immutable Docker images, as we will never overwrite existing tags.
 
 You can find all the images and tags on the [RisingStack Docker Hub](https://hub.docker.com/r/risingstack).
 
 ## Usage
 
 ```Dockerfile
-FROM risingstack/alpine:v4.2.4
+FROM risingstack/alpine:3.3-v4.2.6-1.1.3
 
 COPY package.json package.json
 RUN npm install
@@ -23,17 +28,9 @@ COPY . .
 CMD ["npm","start"]
 ```
 
-## Ubuntu-based images
-
-* Node.js v4.2.4: `docker pull risingstack/trusty:v4.2.4`
-* Node.js v5.3.0: `docker pull risingstack/trusty:v5.3.0`
-
 ## Alpine-based images
-
-Alpine Linux is a security-oriented, lightweight Linux distribution
-based on musl libc and busybox.
 
 [Alpine linux](http://www.alpinelinux.org/)
 
-* Node.js v4.2.4: `docker pull risingstack/alpine:v4.2.4`
-* Node.js v5.3.0: `docker pull risingstack/alpine:v5.3.0`
+* Node.js v4.2.4: `docker pull risingstack/alpine:3.3-v4.2.6-1.1.3`
+* Node.js v5.3.0: `docker pull risingstack/alpine:3.3-v5.5.0-1.1.3`
