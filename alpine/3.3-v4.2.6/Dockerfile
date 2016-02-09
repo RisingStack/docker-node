@@ -1,9 +1,9 @@
-FROM risingstack/alpine-base
+FROM risingstack/alpine-base:3.3-1.0.4
 
 MAINTAINER Gergely Nemeth <gergely@risingstack.com>
 
-RUN curl -sSL https://nodejs.org/dist/v4.2.4/node-v4.2.4.tar.gz | tar -xz && \
-  cd /node-v4.2.4 && \
+RUN curl -sSL https://nodejs.org/dist/v4.2.6/node-v4.2.6.tar.gz | tar -xz && \
+  cd /node-v4.2.6 && \
   ./configure --prefix=/usr && \
   NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
   make out/Makefile && \
