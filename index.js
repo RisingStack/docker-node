@@ -26,7 +26,7 @@ dockerTemplates.forEach((templatePath) => {
     })
 
     circleDependencies.push(`- version=$(node -pe "($(cat package.json)).version"); cd alpine/${tag} && docker build -t risingstack/alpine:${tag}-$version .;`)
-    circleDeployments.push(`- version=$(node -pe "($(cat package.json)).version"); cd alpine/${tag} && docker push risingstack/alpine:${tag}-$version .;`)
+    circleDeployments.push(`- version=$(node -pe "($(cat package.json)).version"); cd alpine/${tag} && docker push risingstack/alpine:${tag}-$version;`)
 
     mkdirp.sync(dockerFileLocation)
 
