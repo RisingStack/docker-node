@@ -2,8 +2,8 @@ FROM risingstack/alpine-base:3.3-1.0.5
 
 MAINTAINER Gergely Nemeth <gergely@risingstack.com>
 
-RUN curl -sSL https://nodejs.org/dist/v5.5.0/node-v5.5.0.tar.gz | tar -xz && \
-  cd /node-v5.5.0 && \
+RUN curl -sSL https://nodejs.org/dist/v5.6.0/node-v5.6.0.tar.gz | tar -xz && \
+  cd /node-v5.6.0 && \
   ./configure --prefix=/usr && \
   NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
   make out/Makefile && \
