@@ -3,6 +3,7 @@ const path = require('path')
 const read = require('fs-readdir-recursive')
 const mkdirp = require('mkdirp')
 const Handlebars = require('handlebars')
+const rimraf = require('rimraf')
 
 const dockerTemplates = read('.').filter(function (filePath) {
   return filePath.includes('Dockerfile.hbs')
@@ -11,6 +12,10 @@ const dockerTemplates = read('.').filter(function (filePath) {
 const circleDependencies = []
 const circleDeployments = []
 
+// cleanup
+rimraf.sync('./alpine/3.3-*')
+
+// regenerate
 dockerTemplates.forEach((templatePath) => {
   const dir = path.resolve(templatePath, '../')
   const versions = require(`${dir}/versions`)
