@@ -13,7 +13,7 @@ RUN curl -sSL https://nodejs.org/dist/v5.6.0/node-v5.6.0.tar.gz | tar -xz && \
   make install && \
   paxctl -cm /usr/bin/node && \
   cd / && \
-  rm -rf /etc/ssl /node-v4.2.4 \
+  rm -rf /etc/ssl /node-v5.6.0 \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
