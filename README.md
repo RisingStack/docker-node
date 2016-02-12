@@ -28,6 +28,8 @@ COPY . .
 CMD ["npm","start"]
 ```
 
+The images come with the `NODE_ENV` environment variable set to `production`.
+
 ## Alpine-based images
 
 [Alpine linux](http://www.alpinelinux.org/)
