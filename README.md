@@ -18,7 +18,7 @@ You can find all the images and tags on the [RisingStack Docker Hub](https://hub
 ## Usage
 
 ```Dockerfile
-FROM risingstack/alpine:3.3-v4.2.6-1.1.3
+FROM risingstack/alpine:3.3-v4.3.1-3.0.1
 
 COPY package.json package.json
 RUN npm install
