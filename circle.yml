@@ -11,6 +11,7 @@ dependencies:
     - docker info
     - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.3-v4.4.3 && docker build -t risingstack/alpine:3.3-v4.4.3-$version .;
     - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.3-v5.11.0 && docker build -t risingstack/alpine:3.3-v5.11.0-$version .;
+    - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.3-v6.0.0 && docker build -t risingstack/alpine:3.3-v6.0.0-$version .;
 
 
 deployment:
@@ -20,3 +21,4 @@ deployment:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.3-v4.4.3 && docker push risingstack/alpine:3.3-v4.4.3-$version;
       - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.3-v5.11.0 && docker push risingstack/alpine:3.3-v5.11.0-$version;
+      - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.3-v6.0.0 && docker push risingstack/alpine:3.3-v6.0.0-$version;
