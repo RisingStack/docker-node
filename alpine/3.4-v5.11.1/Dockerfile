@@ -1,4 +1,4 @@
-FROM risingstack/alpine-base:3.3-2.0.0
+FROM risingstack/alpine-base:3.4-3.0.1
 
 MAINTAINER Gergely Nemeth <gergely@risingstack.com>
 
