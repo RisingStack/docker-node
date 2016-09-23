@@ -4,7 +4,7 @@ In this repo you can find different Linux distributions with Node.js.
 
 ## Tags
 
-The tags has the following format: `X-Y-X`, where:
+The tags has the following format: `X-Y-Z`, where:
 
 * `X` stands for the version of the OS of the base image
 * `Y` stands for the Node.js version included in the image
