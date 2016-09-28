@@ -13,7 +13,7 @@ const circleDependencies = []
 const circleDeployments = []
 
 // cleanup
-rimraf.sync('./alpine/3.3-*')
+rimraf.sync('./alpine/3.4*')
 
 // regenerate
 dockerTemplates.forEach((templatePath) => {
