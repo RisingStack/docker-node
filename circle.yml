@@ -12,6 +12,7 @@ dependencies:
     - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.4-v4.6.1 && docker build -t risingstack/alpine:3.4-v4.6.1-$version .;
     - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.4-v6.9.4 && docker build -t risingstack/alpine:3.4-v6.9.4-$version .;
     - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.4-v7.4.0 && docker build -t risingstack/alpine:3.4-v7.4.0-$version .;
+    - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.3-v6.9.4 && docker build -t risingstack/alpine:3.3-v6.9.4-$version .;
 
 
 deployment:
@@ -22,3 +23,4 @@ deployment:
       - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.4-v4.6.1 && docker push risingstack/alpine:3.4-v4.6.1-$version;
       - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.4-v6.9.4 && docker push risingstack/alpine:3.4-v6.9.4-$version;
       - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.4-v7.4.0 && docker push risingstack/alpine:3.4-v7.4.0-$version;
+      - version=$(node -pe "($(cat package.json)).version"); cd alpine/3.3-v6.9.4 && docker push risingstack/alpine:3.3-v6.9.4-$version;
