@@ -1,9 +1,9 @@
-FROM risingstack/alpine-base:3.4-3.0.1
+FROM risingstack/alpine-base:3.3-2.0.0
 
 MAINTAINER Gergely Nemeth <gergely@risingstack.com>
 
-RUN curl -sSL https://nodejs.org/dist/v8.1.4/node-v8.1.4.tar.gz | tar -xz && \
-  cd /node-v8.1.4 && \
+RUN curl -sSL https://nodejs.org/dist/v6.11.2/node-v6.11.2.tar.gz | tar -xz && \
+  cd /node-v6.11.2 && \
   ./configure --prefix=/usr && \
   NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
   make out/Makefile && \
@@ -13,7 +13,7 @@ RUN curl -sSL https://nodejs.org/dist/v8.1.4/node-v8.1.4.tar.gz | tar -xz && \
   make install && \
   paxctl -cm /usr/bin/node && \
   cd / && \
-  rm -rf /node-v8.1.4 \
+  rm -rf /node-v6.11.2 \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
