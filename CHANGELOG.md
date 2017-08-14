@@ -1,3 +1,10 @@
+<a name="4.5.2"></a>
+## 4.5.2 (2017-08-14)
+
+* feat(version): add node 6.11.2 and 8.3.0 ([6bd948c](https://github.com/RisingStack/docker-node/commit/6bd948c))
+
+
+
 <a name="1.1.5"></a>
 ## [1.1.5](https://github.com/RisingStack/docker-node/compare/v1.1.5...v1.1.5) (2016-02-12)
 
