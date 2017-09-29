@@ -34,5 +34,5 @@ The images come with the `NODE_ENV` environment variable set to `production`.
 
 [Alpine linux](http://www.alpinelinux.org/)
 
-* Node.js v4.2.4: `docker pull risingstack/alpine:3.3-v4.2.6-1.1.3`
-* Node.js v5.3.0: `docker pull risingstack/alpine:3.3-v5.5.0-1.1.3`
+* Node.js v4.8.4: `docker pull risingstack/alpine:3.4-v4.8.4-4.6.0`
+* Node.js v8.6.0: `docker pull risingstack/alpine:3.4-v8.6.0-4.7.0`
