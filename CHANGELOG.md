@@ -1,3 +1,12 @@
+<a name="4.8.0"></a>
+## 4.8.0 (2017-09-29)
+
+
+#### Features
+
+* **docker:** add 8.6.0 ([b1480fb0](git+https://github.com/RisingStack/docker-node.git/commit/b1480fb0))
+
+
 <a name="4.5.2"></a>
 ## 4.5.2 (2017-08-14)
 
