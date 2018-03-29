@@ -1,6 +1,6 @@
 FROM risingstack/alpine-base:{{baseVersion}}
 
-MAINTAINER Gergely Nemeth <gergely@risingstack.com>
+LABEL maintainer="Tamas Kadlecsik <tamas.kadlecsik@risingstack.com>"
 
 RUN curl -sSL https://nodejs.org/dist/{{nodeVersion}}/node-{{nodeVersion}}.tar.gz | tar -xz && \
   cd /node-{{nodeVersion}} && \
