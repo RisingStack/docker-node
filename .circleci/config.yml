@@ -1,0 +1,54 @@
+version: 2
+jobs:
+  build:
+    working_directory: /app
+    docker:
+      - image: docker:17
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run: 
+          name: Install dependencies
+          command: apk --update add jq
+      - run:
+          name: Build Docker image 3.4-v8.9.4
+          command: |
+            set -eoux pipefail
+            version=$(jq -r ".version" package.json)
+            cd alpine/3.4-v8.9.4
+            docker build -t risingstack/alpine:3.4-v8.9.4-$version .
+      - run:
+          name: Test 3.4-v8.9.4
+          command: |
+            set -e pipefail
+            version=$(jq -r ".version" package.json)
+            # check if the right string is written to console using node
+            docker run risingstack/alpine:3.4-v8.9.4-$version node -e "console.log('hello world')" | grep "hello world"
+      # build second container image. remove if not necessary
+      - run:
+          name: Build Docker image 3.4-v8.9.4
+          command: |
+            set -eoux pipefail
+            version=$(jq -r ".version" package.json)
+            cd alpine/3.7-v8.10.0
+            docker build -t risingstack/alpine:3.7-v8.10.0-$version .
+      - run:
+          name: Test 3.7-v8.10.0
+          command: |
+            set -e pipefail
+            version=$(jq -r ".version" package.json)
+            docker run risingstack/alpine:3.7-v8.10.0-$version node -e "console.log('hello world')" | grep "hello world"
+      - deploy:
+          name: Push Docker image
+          command: |
+            set -eou pipefail
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker login -u $DOCKER_USER -p $DOCKER_PASS
+              version=$(jq -r ".version" package.json)
+              cd alpine/3.4-v8.9.4
+              docker push risingstack/alpine:3.7-$version
+              # push second image, remove if not necessary
+              cd ../3.7-v8.10.0
+              docker push risingstack/alpine:3.7-$version
+            fi
