@@ -31,14 +31,14 @@ jobs:
           command: |
             set -eoux pipefail
             version=$(jq -r ".version" package.json)
-            cd alpine/3.4-v8.9.4
+            cd alpine/3.7-v8.10.0
             docker build -t risingstack/alpine:3.4-v8.10.0-$version .
       - run:
           name: Test 3.7-v8.10.0
           command: |
             set -e pipefail
             version=$(jq -r ".version" package.json)
-            docker run risingstack/alpine:3.4-v8.10.0-$version node -e "console.log('hello world')" | grep "hello world"
+            docker run risingstack/alpine:3.7-v8.10.0-$version node -e "console.log('hello world')" | grep "hello world"
       - deploy:
           name: Push Docker image
           command: |
