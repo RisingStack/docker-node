@@ -27,18 +27,18 @@ jobs:
             docker run risingstack/alpine:3.4-v8.9.4-$version node -e "console.log('hello world')" | grep "hello world"
       # build second container image. remove if not necessary
       - run:
-          name: Build Docker image 3.4-v8.9.4
+          name: Build Docker image 3.7-v8.10.0
           command: |
             set -eoux pipefail
             version=$(jq -r ".version" package.json)
             cd alpine/3.4-v8.9.4
-            docker build -t risingstack/alpine:3.4-v8.9.4-$version .
+            docker build -t risingstack/alpine:3.4-v8.10.0-$version .
       - run:
           name: Test 3.7-v8.10.0
           command: |
             set -e pipefail
             version=$(jq -r ".version" package.json)
-            docker run risingstack/alpine:3.7-v8.10.0-$version node -e "console.log('hello world')" | grep "hello world"
+            docker run risingstack/alpine:3.4-v8.10.0-$version node -e "console.log('hello world')" | grep "hello world"
       - deploy:
           name: Push Docker image
           command: |
