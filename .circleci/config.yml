@@ -47,7 +47,7 @@ jobs:
               docker login -u $DOCKER_USER -p $DOCKER_PASS
               version=$(jq -r ".version" package.json)
               cd alpine/3.4-v8.9.4
-              docker push risingstack/alpine:3.7-v8.9.4-$version
+              docker push risingstack/alpine:3.4-v8.9.4-$version
               # push second image, remove if not necessary
               cd ../3.7-v8.10.0
               docker push risingstack/alpine:3.7-v8.10.0-$version
