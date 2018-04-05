@@ -31,8 +31,8 @@ jobs:
           command: |
             set -eoux pipefail
             version=$(jq -r ".version" package.json)
-            cd alpine/3.7-v8.9.4
-            docker build -t risingstack/alpine:3.7-v8.9.4-$version .
+            cd alpine/3.4-v8.9.4
+            docker build -t risingstack/alpine:3.4-v8.9.4-$version .
       - run:
           name: Test 3.7-v8.10.0
           command: |
